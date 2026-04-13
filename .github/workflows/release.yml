@@ -63,7 +63,7 @@ jobs:
 
       - name: Create draft release
         id: create_release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
           name: Ora ${{ steps.version.outputs.version }}
@@ -177,7 +177,7 @@ jobs:
           rm -rf staging
 
       - name: Upload archives to release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
           files: dist/*.tar.gz
@@ -186,7 +186,7 @@ jobs:
 
       - name: Upload Linux packages to release
         if: runner.os == 'Linux'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
           files: |
@@ -197,7 +197,7 @@ jobs:
 
       - name: Upload macOS installer to release
         if: runner.os == 'macOS'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
           files: dist/*.pkg
@@ -252,7 +252,7 @@ jobs:
           cat SHA256SUMS.txt
 
       - name: Upload SBOM and SHA256SUMS.txt
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
           files: |
